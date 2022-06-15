@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -14,6 +16,8 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {},
       child: Text(text),
+      style: ElevatedButton.styleFrom(
+          minimumSize: const Size(double.infinity, 50)),
     );
   }
 }
