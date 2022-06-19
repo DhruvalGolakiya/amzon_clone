@@ -1,5 +1,5 @@
 import 'package:amzon_clone/constants/global_var.dart';
-import 'package:amzon_clone/feature/auth/auth_screen.dart';
+import 'package:amzon_clone/feature/auth/screen/auth_screen.dart';
 import 'package:amzon_clone/router.dart';
 import 'package:flutter/material.dart';
 

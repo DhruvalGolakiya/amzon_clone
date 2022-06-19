@@ -1,4 +1,4 @@
-import 'package:amzon_clone/feature/auth/auth_screen.dart';
+import 'package:amzon_clone/feature/auth/screen/auth_screen.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
