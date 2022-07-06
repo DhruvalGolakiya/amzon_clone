@@ -3,6 +3,7 @@
 import 'package:amzon_clone/common/Widgets/customTextField.dart';
 import 'package:amzon_clone/common/Widgets/custom_button.dart';
 import 'package:amzon_clone/constants/global_var.dart';
+import 'package:amzon_clone/feature/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth {
@@ -22,6 +23,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Auth auth = Auth.signup;
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
+  final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -32,6 +34,15 @@ class _AuthScreenState extends State<AuthScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     _nameController.dispose();
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+      name: _nameController.text,
+    );
   }
 
   @override
@@ -104,7 +115,13 @@ class _AuthScreenState extends State<AuthScreen> {
                     SizedBox(
                       height: 10,
                     ),
-                    CustomButton(text: 'SignUp', onTap: () {})
+                    CustomButton(
+                        text: 'SignUp',
+                        onTap: () {
+                          if (_signInFormKey.currentState!.validate()) {
+                            signUpUser();
+                          }
+                        })
                   ]),
                 ),
               ),
